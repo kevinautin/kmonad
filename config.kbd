@@ -3,7 +3,8 @@
   output (uinput-sink "KMonad kbd"))
 
 (defalias
-  num (tap-hold 250 n (layer-toggle numpad)))
+  num (tap-next ; (layer-toggle numpad)))
+  ;;num (tap-hold 250 ; (layer-toggle numpad)))
 (defalias
   bcaps (tap-next esc lctl))
 
@@ -20,8 +21,8 @@
   esc    f1    f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12    pause  prnt  ins  del
   `       1     2    3    4    5    6    7    8    9    0    -     =      bspc              home
   tab     q     w    e    r    t    y    u    i    o    p    [     ]      ret               pgup
-  @bcaps  a     s    d    f    g    h    j    k    l    ;    '     \                        pgdn
-  lsft    z     x    c    v    b    @num m    ,    .    /    rsft         up                end
+  @bcaps  a     s    d    f    g    h    j    k    l    @num    '     \                        pgdn
+  lsft    z     x    c    v    b    n    m    ,    .    /    rsft         up                end
   lctl    lmet  lalt      spc       ralt cmps rctl                 left   down   rght
   )
 

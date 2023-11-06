@@ -3,7 +3,7 @@
   output (uinput-sink "KMonad kbd"))
 
 (defalias
-  num (tap-hold 250 n (layer-toggle numpad)))
+  num (tap-hold 150 n (layer-toggle numpad)))
 (defalias
   bcaps (tap-next esc lctl))
 
