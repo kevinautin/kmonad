@@ -2,8 +2,11 @@
   input  (device-file "/dev/input/by-id/usb-SEMICO_USB_Gaming_Keyboard-event-kbd")
   output (uinput-sink "KMonad kbd"))
 
-(defalias num (tap-hold 250 n (layer-toggle numpad)))
 (defalias bcaps (tap-next esc lctl))
+(defalias num (tap-hold 250 n (layer-toggle numpad)))
+(defalias brk (tap-hold 250 b (layer-toggle brakets)))
+(defalias smb (tap-hold 250 s (layer-toggle symbols)))
+(defalias dll (around lctl bspc))
 
 (defsrc
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12    pause  prnt  ins  del
@@ -18,9 +21,18 @@
   esc    f1    f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12    pause  prnt  ins  del
   `       1     2    3    4    5    6    7    8    9    0    -     =      bspc              home
   tab     q     w    e    r    t    y    u    i    o    p    [     ]      ret               pgup
-  @bcaps  a     s    d    f    g    h    j    k    l    ;    '     \                        pgdn
-  lsft    z     x    c    v    b    @num m    ,    .    /    rsft         up                end
+  @bcaps  a     @smb d    f    g    h    j    k    l    ;    '     \                        pgdn
+  lsft    z     x    c    v    @brk @num m    ,    .    /    rsft         up                end
   lctl    lmet  lalt      spc       ralt cmps rctl                 left   down   rght
+  )
+
+(deflayer normal
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _   _     _    _
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _              _
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _              _
+  _     _    _    _    _    _    _    _    _    _    _   _   _                  _
+  _     _    _    _    _    _    _    _    _    _    _   _       _              _
+  _     _    _         _         _    _    _                 _   _   _
   )
 
 (deflayer numpad
@@ -31,3 +43,22 @@
   _     -    7    8    9    /    _    _    _    _    _   _       _              _
   _     _    _         _         _    _    _                 _   _   _
   )
+
+(deflayer brakets
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _   _     _    _
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _              _
+  _     _    _    _    _    _    _    \(   \)   '    _   _   _   _              _
+  _     _    _    _    _    _    _    [    ]    "    _   _   _                  _
+  _     _    _    _    _    _    _    {    }    `    _   _       _              _
+  _     _    _         _         _    _    _                 _   _   _
+  )
+
+(deflayer symbols
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _   _     _    _
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _              _
+  _     _    _    _    _    _    _    !    @    #    _   _   _   _              _
+  _     _    _    _    _    _    _    $    %    ^    _   _   _                  _
+  _     _    _    _    _    _    _    &    |    \_   _   _       _              _
+  _     _    _         _         _    _    _                 _   _   _
+  )
+
