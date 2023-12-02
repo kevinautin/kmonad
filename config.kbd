@@ -6,6 +6,7 @@
 (defalias num (tap-hold 250 n (layer-toggle numpad)))
 (defalias brk (tap-hold 250 b (layer-toggle brakets)))
 (defalias smb (tap-hold 250 s (layer-toggle symbols)))
+(defalias dl (tap-hold 250 d (layer-toggle deletes)))
 (defalias dll (around lctl bspc))
 
 (defsrc
@@ -21,7 +22,7 @@
   esc    f1    f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12    pause  prnt  ins  del
   `       1     2    3    4    5    6    7    8    9    0    -     =      bspc              home
   tab     q     w    e    r    t    y    u    i    o    p    [     ]      ret               pgup
-  @bcaps  a     @smb d    f    g    h    j    k    l    ;    '     \                        pgdn
+  @bcaps  a     @smb @dl    f    g    h    j    k    l    ;    '     \                        pgdn
   lsft    z     x    c    v    @brk @num m    ,    .    /    rsft         up                end
   lctl    lmet  lalt      spc       ralt cmps rctl                 left   down   rght
   )
@@ -62,3 +63,12 @@
   _     _    _         _         _    _    _                 _   _   _
   )
 
+
+(deflayer deletes
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _   _     _    _
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _              _
+  _     _    _    _    _    _    _    _    _    _    _   _   _   _              _
+  _     _    _    _    _    _    _    spc  bspc _    _   _   _                  _
+  _     _    _    _    _    _    _    _    _    _    _   _       _              _
+  _     _    _         _         _    _    _                 _   _   _
+  )
